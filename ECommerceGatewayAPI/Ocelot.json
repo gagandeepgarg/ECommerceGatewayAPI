@@ -1,0 +1,31 @@
+{
+  "ReRoutes": [
+    {
+      //forwarding to
+      "DownstreamPathTemplate": "/api/{catchAll}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": [ 5001, 5000 ]
+        }
+      ],
+      // listening at
+      "UpstreamPathTemplate": "/orders-api/{catchAll}"
+    },
+    {
+      //forwarding to
+      "DownstreamPathTemplate": "/api/{catchAll}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": [ 6001, 6000 ]
+        }
+      ],
+      // listening at
+      "UpstreamPathTemplate": "/items-api/{catchAll}"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7000"
+  }
+}
