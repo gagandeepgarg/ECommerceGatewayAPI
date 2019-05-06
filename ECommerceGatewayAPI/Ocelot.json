@@ -3,29 +3,33 @@
     {
       //forwarding to
       "DownstreamPathTemplate": "/api/{catchAll}",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": [ 5001, 5000 ]
+          "Port": 5001
         }
       ],
       // listening at
-      "UpstreamPathTemplate": "/orders-api/{catchAll}"
+      "UpstreamPathTemplate": "/orders-api/{catchAll}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "DELETE" ]
     },
     {
       //forwarding to
       "DownstreamPathTemplate": "/api/{catchAll}",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": [ 6001, 6000 ]
+          "Port": 5002
         }
       ],
       // listening at
-      "UpstreamPathTemplate": "/items-api/{catchAll}"
+      "UpstreamPathTemplate": "/items-api/{catchAll}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "DELETE" ]
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:7000"
+    "BaseUrl": "https://localhost:5000"
   }
 }
